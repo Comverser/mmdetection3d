@@ -15,7 +15,22 @@ conda create -n gn python=3.7 -y
 conda activate gn
 ```
 
-### RTX 2070 case (support docker image)
+### General case v0.18.0
+```bash
+# install PyTorch with CUDA
+conda install pytorch==1.5.0 cudatoolkit=10.1 torchvision==0.6.0 -c pytorch
+
+# install mmcv
+pip install mmcv-full
+
+# install mmdetection
+pip install git+https://github.com/open-mmlab/mmdetection.git
+
+# install mmsegmentation
+pip install git+https://github.com/open-mmlab/mmsegmentation.git
+```
+
+### RTX 2070 case v0.17.0 (support docker image)
 
 ```bash
 # install PyTorch with the CUDA version
@@ -31,7 +46,7 @@ pip install mmdet==2.14.0
 pip install mmsegmentation==0.14.1
 ```
 
-### RTX 3080 case (better performance)
+### RTX 3080 case v0.17.0 (better performance)
 
 ```bash
 conda install pytorch==1.8.0 torchvision==0.9.0 cudatoolkit=11.1 -c pytorch -c nvidia
