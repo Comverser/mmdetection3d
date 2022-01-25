@@ -131,7 +131,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'KittiDataset'
-data_root = 'data/kitti/'
+data_root = '/data/kitti/'  # HShin
 class_names = ['Pedestrian', 'Cyclist', 'Car']
 img_norm_cfg = dict(
     mean=[103.530, 116.280, 123.675], std=[1.0, 1.0, 1.0], to_rgb=False)
@@ -201,7 +201,7 @@ eval_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=2,
+    samples_per_gpu=1,  # HShin
     workers_per_gpu=2,
     train=dict(
         type='RepeatDataset',
