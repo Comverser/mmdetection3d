@@ -2,9 +2,9 @@
 
 ## Environment
 
--   OS: Ubuntu 20.04
+-   OS: Ubuntu 18.04/20.04, respectively
 -   GPU: NVIDIA GeForce RTX 2070 SUPER / RTX 3080
--   CUDA: 10.1.2 / 11.1.1, respectively
+-   CUDA: 10.1.2/11.1.1, respectively
 
 ## Install
 
@@ -82,3 +82,6 @@ pip install open3d
 # set "samples_per_gpu" to 1
 
 -   https://github.com/open-mmlab/mmdetection3d/issues/37
+
+
+# Search "HShin" comments in the source code to find other modifications 
