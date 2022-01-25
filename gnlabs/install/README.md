@@ -68,15 +68,16 @@ nvidia-smi -i 0,1 -pl 250
 ### common
 
 ```bash
-# install mmdetection3d-0.17.0
+# install mmdetection3d
 git clone https://github.com/Comverser/mmdetection3d.git
 cd mmdetection3d
 pip install -v -e .
 
-# compatibility error fix
-pip install pycocotools==2.0.1
 # install visualization package
 pip install open3d
+
+# compatibility error fix (v0.17.0)
+pip install pycocotools==2.0.1
 ```
 
 # set "samples_per_gpu" to 1
