@@ -1,6 +1,6 @@
 # This schedule is mainly used by models with dynamic voxelization
 # optimizer
-lr = 0.003  # max learning rate
+lr = 0.0003  # max learning rate  # HShin (https://github.com/open-mmlab/mmdetection3d/issues/496)
 optimizer = dict(
     type='AdamW',
     lr=lr,
