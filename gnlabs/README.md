@@ -3,26 +3,26 @@
 1. dataset preparation
 
 ```bash
-python tools/create_data.py kitti --root-path /data/kitti --out-dir /data/kitti --extra-tag kitti
+python tools/create_data.py kitti --root-path data/kitti --out-dir data/kitti --extra-tag kitti
 ```
 
 2. browse
 
 ```bash
-python tools/misc/browse_dataset.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --task multi_modality-det --output-dir /data/kitti/results/ --online
+python tools/misc/browse_dataset.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --task multi_modality-det --output-dir data/kitti/results/ --online
 ```
 
 3. visualization
 - using predicted results
 ```bash
-./tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py work_dir/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth 8 --out /data/kitti/pred_result.pkl --eval mAP
+./tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py work_dir/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth 8 --out data/kitti/pred_result.pkl --eval mAP
 ```
 ```bash
-python tools/misc/visualize_results.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --result /data/kitti/pred_result.pkl --show-dir /data/kitti/show_dir/
+python tools/misc/visualize_results.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --result data/kitti/pred_result.pkl --show-dir data/kitti/show_dir/
 ```
 - using model
 ```bash
-python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py checkpoints/hv_second_secfpn_6x8_80e_kitti-3d-car_20200620_230238-393f000c.pth --show --show-dir /data/kitti/show_dir/
+python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py checkpoints/hv_second_secfpn_6x8_80e_kitti-3d-car_20200620_230238-393f000c.pth --show --show-dir data/kitti/show_dir/
 ```
 
 # model development (3 classes and multi gpu)
@@ -100,41 +100,41 @@ pip install gdown
 ## input file directory
 
 ```bash
-/data/kitti/
+data/kitti/
 # kitti-3d-3class.py
 # dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py
 ```
 
-## download kitti dataset sample to **/data**/kitti/ directory
+## download kitti dataset sample to **data**/kitti/ directory
 
 -   gnict sample (overwrite)
 
 ```bash
-gdown https://drive.google.com/uc?id=1zoQ0IA7ZVX58S1JFx34vvlbQHXMdkaDY -O /data/original/input/kitti.zip
+gdown https://drive.google.com/uc?id=1zoQ0IA7ZVX58S1JFx34vvlbQHXMdkaDY -O data/original/input/kitti.zip
 ```
 
 -   gnict sample wo 2d (overwrite)
 
 ```bash
-gdown https://drive.google.com/uc?id=1dCTaJ754XH2S2fr-e7M9ZzHl5VvGv2py -O /data/original/input/kitti_wo_2d.zip
+gdown https://drive.google.com/uc?id=1dCTaJ754XH2S2fr-e7M9ZzHl5VvGv2py -O data/original/input/kitti_wo_2d.zip
 ```
 
 -   kitti 3 (overwrite)
 
 ```bash
-rm -rf /data/kitti
-mkdir /data/tmp
-gdown https://drive.google.com/uc?id=1rXb4RPC1ZclLlfKWLUppW71iKXvTFIEB -O /data/tmp/kitti.zip
-unzip /data/tmp/*.zip -d /data/ && rm -rf /data/tmp
+rm -rf data/kitti
+mkdir data/tmp
+gdown https://drive.google.com/uc?id=1rXb4RPC1ZclLlfKWLUppW71iKXvTFIEB -O data/tmp/kitti.zip
+unzip data/tmp/*.zip -d data/ && rm -rf data/tmp
 ```
 
 -   kitti 40 (overwrite)
 
 ```bash
-rm -rf /data/kitti
-mkdir /data/tmp
-gdown https://drive.google.com/uc?id=1_3yU3HmFf-SqBrXXJLZw8-a_k7E6LV_D -O /data/tmp/kitti.zip
-unzip /data/tmp/*.zip -d /data/ && rm -rf /data/tmp
+rm -rf data/kitti
+mkdir data/tmp
+gdown https://drive.google.com/uc?id=1_3yU3HmFf-SqBrXXJLZw8-a_k7E6LV_D -O data/tmp/kitti.zip
+unzip data/tmp/*.zip -d data/ && rm -rf data/tmp
 ```
 
 ## kitti dataset structure
