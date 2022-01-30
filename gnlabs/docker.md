@@ -12,7 +12,7 @@
 3. build
 
 ```bash
-sudo docker build -t mmdetection3d docker/
+sudo docker build -t mmdetection3d gnlabs/
 ```
 
 # docker env
@@ -23,7 +23,5 @@ sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/
 
 ```bash
 apt update
-apt install vim
-apt install tmux
 apt install wget
 ```
