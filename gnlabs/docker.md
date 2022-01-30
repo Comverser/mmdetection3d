@@ -18,7 +18,7 @@ sudo docker build -t mmdetection3d docker/
 # docker env
 
 ```bash
-sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/mmdetection3d/data mmdetection3d
+sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/mmdetection3d/data -v /home/s/dev/mmdetection3d/work_dirs:/mmdetection3d/work_dirs mmdetection3d
 ```
 
 ```bash
