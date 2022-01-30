@@ -2,9 +2,8 @@
 
 ## Environment
 
--   OS: Ubuntu 18.04
--   GPU: NVIDIA GeForce RTX 2070 SUPER
--   CUDA: 11.1.1 / 10.1.2
+-   OS: Ubuntu 18.04 / 20.04
+-   GPU: NVIDIA GeForce GTX 1070 / RTX 2070 SUPER
 
 ## Install
 
@@ -13,7 +12,7 @@
 3. build
 
 ```bash
-sudo docker build -t mmdetection3d gnlabs/
+sudo docker build -t mmdetection3d docker/
 ```
 
 # docker env
@@ -23,7 +22,8 @@ sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/
 ```
 
 ```bash
-apt-get update
-apt-get install wget
-apt-get install vim
+apt update
+apt install vim
+apt install tmux
+apt install wget
 ```
