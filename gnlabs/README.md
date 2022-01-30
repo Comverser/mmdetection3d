@@ -83,6 +83,11 @@ wget https://download.openmmlab.com/mmdetection3d/v0.1.0_models/second/hv_second
 ```bash
 python demo/pcd_demo.py demo/data/kitti/kitti_000008.bin configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py checkpoints/hv_second_secfpn_6x8_80e_kitti-3d-car_20200620_230238-393f000c.pth --show
 ```
+Multimodal
+```bash
+python demo/multi_modality_demo.py demo/data/gn_data/000012_data.bin demo/data/gn_data/000012_img.png demo/data/gn_data/000012_infos.pkl configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py ${CheckPointPath} --show
+```
+
 
 # dataset download
 
