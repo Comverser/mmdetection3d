@@ -17,10 +17,23 @@ sudo docker build -t mmdetection3d gnlabs/
 
 # docker env
 
+## image
 ```bash
 sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/mmdetection3d/data -v /home/s/dev/mmdetection3d/work_dirs:/mmdetection3d/work_dirs mmdetection3d
 ```
+## mis
 
+### save
+```bash
+sudo docker save mmdetection3d -o mmdetection3d.tar
+```
+
+### load
+```bash
+sudo docker load -i mmdetection3d.tar
+```
+
+### tools
 ```bash
 apt update
 apt install wget
