@@ -33,8 +33,6 @@ pip install -v -e .
 # install visualization package
 pip install open3d
 
-# compatibility error fix (v0.17.0)
-pip install pycocotools==2.0.1
 ```
 
 ### set "samples_per_gpu" to 1
