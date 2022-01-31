@@ -42,13 +42,13 @@ pip install open3d
 
 ### Search "HShin" comments in the source code to find other modifications 
 
-# RTX 3080 case
+## RTX 3080 case
 
-## out of memory (RTX 3080 case)
+### out of memory (RTX 3080 case)
 
 -   Change parameters (4096 -> 2048 ) on mmdet3d/ops/spconv/src/indice_cuda.cu
 
-## system reboot when training
+### system reboot when training
 https://discuss.pytorch.org/t/system-reboot-when-training/108317
 ```bash
 nvidia-smi -i 0,1 -pl 250
