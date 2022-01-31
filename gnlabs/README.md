@@ -53,11 +53,13 @@ wget https://download.openmmlab.com/mmdetection3d/v0.1.0_models/second/hv_second
 ```bash
 wget https://download.openmmlab.com/mmdetection3d/v0.1.0_models/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth -P ./checkpoints/
 ```
+multi gpu (currently not working...)
 ```bash
 ./tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2 --resume-from checkpoints/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth
 ```
 -   increase max_epoch value for continued training on configs/\_base\_/schedules/cosine.py
 
+multi gpu (currently not working...)
 ```bash
 ./tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2 --resume-from work_dirs/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/latest.pth
 ```
