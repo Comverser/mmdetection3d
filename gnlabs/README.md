@@ -7,10 +7,7 @@ python demo/pcd_demo.py gnlabs/demo/000012_data.bin \
 
 ## train
 ```bash
-wget https://download.openmmlab.com/mmdetection3d/v0.1.0_models/second/hv_second_secfpn_6x8_80e_kitti-3d-3class/hv_second_secfpn_6x8_80e_kitti-3d-3class_20200620_230238-9208083a.pth -P checkpoints/
-```
-```bash
-tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2 --resume-from checkpoints/hv_second_secfpn_6x8_80e_kitti-3d-3class_20200620_230238-9208083a.pth
+tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
 ```
 -   increase max_epoch value for continued training on configs/\_base\_/schedules/cyclic_40e.py
 
@@ -20,7 +17,18 @@ tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
 
 ## test
 ```bash
-tools/dist_test.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py checkpoints/hv_second_secfpn_6x8_80e_kitti-3d-car_20200620_230238-393f000c.pth 2 --eval mAP
+python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py \
+    checkpoints/second.pth \
+    --out data/kitti/results_second.pkl \
+    --eval mAP
+
+tools/dist_test.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py \
+    checkpoints/second.pth 2 \
+    --out data/kitti/results_second.pkl \
+    --eval mAP
+
+python tools/misc/visualize_results.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-car.py \
+    --result data/kitti/results_second.pkl --show-dir data/kitti/show_results_second
 ```
 
 # MVXNet
@@ -35,29 +43,38 @@ python demo/multi_modality_demo.py gnlabs/demo/000012_data.bin gnlabs/demo/00001
 
 ## train
 
-```bash
-wget https://download.openmmlab.com/mmdetection3d/v0.1.0_models/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth -P checkpoints/
-```
 multi gpu (currently not working...)
+
 ```bash
-tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2 --resume-from checkpoints/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth
+python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py
+
+tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2
 ```
 -   increase max_epoch value for continued training on configs/\_base\_/schedules/cosine.py
 
-multi gpu (currently not working...)
 ```bash
 tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2 --resume-from work_dirs/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/latest.pth
-```
-single gpu
-```bash
+
 python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --resume-from work_dirs/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/latest.pth
 ```
 
 ## test
 
-
 ```bash
-tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py checkpoints/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class_20200621_003904-10140f2d.pth 2 --eval mAP
+python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+    checkpoints/mvxnet.pth \
+    --out data/kitti/results_mvxnet.pkl \
+    --eval mAP
+
+
+tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+    checkpoints/mvxnet.pth 2 \
+    --out data/kitti/results_mvxnet.pkl \
+    --eval mAP
+
+
+python tools/misc/visualize_results.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+    --result data/kitti/results_mvxnet.pkl --show-dir data/kitti/show_results_mvxnet/
 ```
 
 
