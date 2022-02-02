@@ -398,6 +398,14 @@ def calculate_iou_partly(gt_annos, dt_annos, metric, num_parts=50):
             raise ValueError('unknown metric')
         parted_overlaps.append(overlap_part)
         example_idx += num_part
+
+    # HShin start
+    import csv
+    with open('data/kitti/results/submission/calc.csv', 'w') as file:
+        write = csv.writer(file)
+        write.writerows(parted_overlaps)
+    # HShin end
+
     overlaps = []
     example_idx = 0
     for j, num_part in enumerate(split_parts):
