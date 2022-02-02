@@ -1,4 +1,4 @@
-# PointPillars:
+# PointPillars
 
 ## demo
 
