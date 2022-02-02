@@ -12,7 +12,7 @@ python demo/pcd_demo.py gnlabs/demo/000012_data.bin \
 -   set dataset directory
 
 ```bash
-vim configs/\_base\_/datasets/kitti-3d-3class.py
+vim configs/_base_/datasets/kitti-3d-3class.py
 vim configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
 ```
 
