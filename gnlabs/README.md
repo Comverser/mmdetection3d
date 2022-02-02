@@ -9,11 +9,22 @@ python demo/pcd_demo.py gnlabs/demo/000012_data.bin \
 
 ## train
 
+-   set dataset directory
+
+```bash
+vim configs/\_base\_/datasets/kitti-3d-3class.py
+vim configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
+```
+
 ```bash
 tools/dist_train.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py 2
 ```
 
 -   increase max_epoch value for continued training on configs/\_base\_/schedules/cyclic_40e.py
+
+```bash
+vim configs/_base_/schedules/cyclic_40e.py
+```
 
 ```bash
 tools/dist_train.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py 2 --resume-from work_dirs/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class/latest.pth
@@ -85,6 +96,12 @@ python demo/multi_modality_demo.py gnlabs/demo/000012_data.bin gnlabs/demo/00001
 
 ## train
 
+-   set dataset directory
+
+```bash
+vim configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py
+```
+
 multi gpu (currently not working...)
 
 ```bash
@@ -94,6 +111,10 @@ tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-
 ```
 
 -   increase max_epoch value for continued training on configs/\_base\_/schedules/cosine.py
+
+```bash
+vim configs/_base_/schedules/cosine.py
+```
 
 ```bash
 tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py 2 --resume-from work_dirs/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/latest.pth
