@@ -3,7 +3,7 @@ from pandas import DataFrame
 from csv import reader
 
 ### Start get IOU value
-with open('work_dirs/test_set/overlap.csv', 'r') as csv_file: #get iou value 
+with open('data/kitti/results/submission/calc.csv', 'r') as csv_file: #get iou value 
     csv_reader = reader(csv_file)
     iou_value = list(csv_reader)
 
@@ -21,11 +21,17 @@ for p in range(len(iou_value)):
         if proc_split[0] == '':
              del proc_split[0]
         for proc_num in range(len(proc_split)):
-            proc_split[proc_num] = float(proc_split[proc_num])
+            try:
+                proc_split[proc_num] = float(proc_split[proc_num])
+            except(ValueError) as e:
+                iou_list = []
+                for iou_str in proc_split[proc_num].split():
+                    iou_num = float(iou_str)
+                    iou_list.append(iou_num)
+                    proc_split[proc_num] = iou_num
         p_list.append(proc_split)
     proc_process.append(p_list)
 # proc_process = list format of iou_value.
-
 #rest problem. it can't get "void" result.
 ### Finish get iou value
 
@@ -33,9 +39,9 @@ for p in range(len(iou_value)):
 
 ### Start get Files
 #get annotation files, predict file
-dir_origin = '/home/s/mmdetection3d/work_dirs/test_set/test_anno/'
-dir_pred = '/home/s/mmdetection3d/work_dirs/test_set/test_res/'
-list_up_file = '/home/s/mmdetection3d/work_dirs/test_set/test.txt'
+dir_origin = 'data/kitti/training/label_2/'
+dir_pred = 'data/kitti/results/submission/pts_bbox/'
+list_up_file = 'data/kitti/ImageSets/val.txt'
 
 list_up = pd.read_csv(list_up_file, names=['list'], converters={'list': str}) #read list file
 list_up_data = []
@@ -96,8 +102,5 @@ for Fi in range(len(list_up)):
     comp = pd.concat([comp, step], axis=0)
 
 
-print(comp)
-print("--")
-
-
-comp.to_csv('work_dirs/test_set/comp.csv', index=False)
+comp.to_csv('data/kitti/results/result.csv', index=False)
+print("Result saved at data/kitti/results/results.csv")
