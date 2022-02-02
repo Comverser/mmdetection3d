@@ -20,10 +20,10 @@ vim configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
 tools/dist_train.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py 2
 ```
 
--   increase max_epoch value for continued training on configs/\_base\_/schedules/cyclic_40e.py
+-   increase max_epoch value for continued training on configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
 
 ```bash
-vim configs/_base_/schedules/cyclic_40e.py
+vim configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
 ```
 
 ```bash
