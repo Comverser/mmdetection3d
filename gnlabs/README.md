@@ -104,7 +104,7 @@ python demo/multi_modality_demo.py gnlabs/demo/000012_data.bin gnlabs/demo/00001
 vim configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py
 ```
 
-multi gpu (currently not working...)
+multi gpu (not stable)
 
 ```bash
 python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py
