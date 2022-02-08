@@ -75,7 +75,6 @@ python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 
     checkpoints/second.pth \
     --out data/kitti/results_second.pkl \
     --eval mAP \
-    --format-only --option submission_prefix=data/kitti/results/submission/
 
 python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
     checkpoints/second.pth 2 \
