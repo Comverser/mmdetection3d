@@ -38,10 +38,10 @@ python tools/test.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-
     --out data/kitti/results_pointpillars.pkl \
     --eval mAP
 
-tools/dist_test.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
+python tools/test.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
     checkpoints/pointpillars.pth 2 \
     --out data/kitti/results_pointpillars.pkl \
-    --eval mAP
+    --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
 python tools/misc/visualize_results.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
     --result data/kitti/results_pointpillars.pkl --show-dir data/kitti/show_results_pointpillars
@@ -77,11 +77,10 @@ python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 
     --eval mAP \
     --format-only --option submission_prefix=data/kitti/results/submission/
 
-tools/dist_test.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
+python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
     checkpoints/second.pth 2 \
     --out data/kitti/results_second.pkl \
-    --eval mAP \
-    --format-only --option submission_prefix=data/kitti/results/submission/
+    --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
 python tools/misc/visualize_results.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
     --result data/kitti/results_second.pkl --show-dir data/kitti/show_results_second
@@ -133,11 +132,10 @@ python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti
     --eval mAP \
     --format-only --option submission_prefix=data/kitti/results/submission/
 
-tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
     checkpoints/mvxnet.pth 2 \
     --out data/kitti/results_mvxnet.pkl \
-    --eval mAP \
-    --format-only --option submission_prefix=data/kitti/results/submission/
+    --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
 
 python tools/misc/visualize_results.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
