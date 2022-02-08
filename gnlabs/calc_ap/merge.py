@@ -2,8 +2,23 @@ import pandas as pd
 from pandas import DataFrame
 from csv import reader
 
+##location setting
+
+labs_link = 'gnlabs/calc_ap/results/' # gnlabs folder
+origin_link = '/data/kitti_test_linked_only/' # Ground Truth folder
+
+
+open_iou_csv = 'iou_value.csv' #saved iou csv file
+dir_origin = 'training/label_2/' #Ground Truth value txt folder
+dir_pred = 'submission/pts_bbox/' # predict value txt folder,  if mvx net = submission/pts_bbox/
+list_up_file = 'ImageSets/val.txt' #Ground Truth file list txt file
+
+save_result_name = 'gnlabs/calc_ap/results/merged_results.csv' #where will save the merged csv file
+
+
+
 ### Start get IOU value
-with open('data/kitti/results/submission/calc.csv', 'r') as csv_file: #get iou value 
+with open(labs_link+open_iou_csv, 'r') as csv_file: #get iou value 
     csv_reader = reader(csv_file)
     iou_value = list(csv_reader)
 
@@ -39,11 +54,9 @@ for p in range(len(iou_value)):
 
 ### Start get Files
 #get annotation files, predict file
-dir_origin = 'data/kitti/training/label_2/'
-dir_pred = 'data/kitti/results/submission/pts_bbox/'
-list_up_file = 'data/kitti/ImageSets/val.txt'
 
-list_up = pd.read_csv(list_up_file, names=['list'], converters={'list': str}) #read list file
+
+list_up = pd.read_csv(origin_link+list_up_file, names=['list'], converters={'list': str}) #read list file
 list_up_data = []
 
 for i in range(len(list_up)):
@@ -52,8 +65,8 @@ for i in range(len(list_up)):
 origin_data = []
 pred_data = []
 for j in list_up_data:
-    origin_data.append(dir_origin + j + ".txt")
-    pred_data.append(dir_pred + j + ".txt") 
+    origin_data.append(origin_link+dir_origin + j + ".txt")
+    pred_data.append(labs_link+dir_pred + j + ".txt") 
 ### Finish get Files
 
 
@@ -67,6 +80,7 @@ for Fi in range(len(list_up)):
                        "dimensions1","dimensions2","dimensions3", "location1","location2","location3", "rotation_y", "score"])       
     proc_data = proc_process[Fi]
     #--
+
 
     idx_col = []
     iou_loc_list = []
@@ -97,10 +111,12 @@ for Fi in range(len(list_up)):
         pred_pro['score']= pred['score']
     finally:
         pass
+    
+
 
     step = pd.merge(origin_pro, pred_pro, how='outer')
     comp = pd.concat([comp, step], axis=0)
 
 
-comp.to_csv('data/kitti/results/result.csv', index=False)
-print("Result saved at data/kitti/results/results.csv")
+comp.to_csv(save_result_name, index=False)
+print("Result saved at "+save_result_name)
