@@ -74,7 +74,7 @@ tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
 python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
     checkpoints/second.pth \
     --out data/kitti/results_second.pkl \
-    --eval mAP \
+    --eval mAP
 
 python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
     checkpoints/second.pth 2 \
@@ -128,8 +128,7 @@ python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitt
 python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
     checkpoints/mvxnet.pth \
     --out data/kitti/results_mvxnet.pkl \
-    --eval mAP \
-    --format-only --option submission_prefix=data/kitti/results/submission/
+    --eval mAP
 
 python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
     checkpoints/mvxnet.pth 2 \
