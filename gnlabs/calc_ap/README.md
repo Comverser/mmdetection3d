@@ -1,3 +1,3 @@
 ```bash
-python gnlabs/tools/merge.py
+python gnlabs/calc_ap/merge.py
 ```
