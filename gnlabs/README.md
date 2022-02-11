@@ -1,13 +1,21 @@
-# PointPillars
+# single-modal
 
-## demo
+-   Change `pts_prefix='velodyne_reduced'` to `pts_prefix='velodyne'`
+
+```bash
+vim configs/_base_/datasets/kitti-3d-3class.py
+```
+
+## PointPillars
+
+### demo
 
 ```bash
 python demo/pcd_demo.py gnlabs/demo/000012_data.bin \
     configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py checkpoints/pointpillars.pth --show
 ```
 
-## train
+### train
 
 -   set dataset directory
 
@@ -30,7 +38,7 @@ vim configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py
 tools/dist_train.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py 2 --resume-from work_dirs/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class/latest.pth
 ```
 
-## test
+### test
 
 ```bash
 python tools/test.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
@@ -47,16 +55,16 @@ python tools/misc/visualize_results.py configs/pointpillars/hv_pointpillars_secf
     --result data/kitti/results_pointpillars.pkl --show-dir data/kitti/show_results_pointpillars
 ```
 
-# SECOND
+## SECOND
 
-## demo
+### demo
 
 ```bash
 python demo/pcd_demo.py gnlabs/demo/000012_data.bin \
     configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py checkpoints/second.pth --show
 ```
 
-## train
+### train
 
 ```bash
 tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
@@ -68,7 +76,7 @@ tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
 tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2 --resume-from work_dirs/hv_second_secfpn_6x8_80e_kitti-3d-3class/latest.pth
 ```
 
-## test
+### test
 
 ```bash
 python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
@@ -85,16 +93,24 @@ python tools/misc/visualize_results.py configs/second/hv_second_secfpn_6x8_80e_k
     --result data/kitti/results_second.pkl --show-dir data/kitti/show_results_second
 ```
 
-# MVXNet
+# multi-modal
 
-## demo
+-   Change `pts_prefix='velodyne'` to `pts_prefix='velodyne_reduced'`
+
+```bash
+vim configs/_base_/datasets/kitti-3d-3class.py
+```
+
+## MVXNet
+
+### demo
 
 ```bash
 python demo/multi_modality_demo.py gnlabs/demo/000012_data.bin gnlabs/demo/000012_img.png gnlabs/demo/000012_infos.pkl \
     configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py checkpoints/mvxnet.pth --show
 ```
 
-## train
+### train
 
 -   set dataset directory
 
@@ -122,7 +138,7 @@ tools/dist_train.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-
 python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py --resume-from work_dirs/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class/latest.pth
 ```
 
-## test
+### test
 
 ```bash
 python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
