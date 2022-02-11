@@ -7,15 +7,15 @@ from csv import reader
 labs_link = 'gnlabs/calc_ap/results/' # gnlabs folder
 
 # HShin
-# origin_link = '/data/kitti_test_all/' # Ground Truth folder for singlemodal
-origin_link = '/data/kitti_test_linked_only/' # Ground Truth folder for multimodal
+# origin_link = '/data/kitti_test_all/' # Ground Truth folder
+origin_link = '/data/kitti_test_linked_only/' # Ground Truth folder
 
 open_iou_csv = 'iou_value.csv' #saved iou csv file
 dir_origin = 'training/label_2/' #Ground Truth value txt folder
 
 # HShin
-# dir_pred = 'submission/' # predict value txt folder for singlemodal
-dir_pred = 'submission/pts_bbox/' # predict value txt folder for multimodal
+# dir_pred = 'submission/' # predict value txt folder,  if mvx net = submission/pts_bbox/
+dir_pred = 'submission/pts_bbox/' # predict value txt folder,  if mvx net = submission/pts_bbox/
 
 list_up_file = 'ImageSets/val.txt' #Ground Truth file list txt file
 
