@@ -63,7 +63,7 @@ class KittiDataset(Custom3DDataset):
                  box_type_3d='LiDAR',
                  filter_empty_gt=True,
                  test_mode=False,
-                 pcd_limit_range=[-70, -70, -3, 70, 70, 3]):  # HShin [360], [0, -40, -3, 70.4, 40, 0.0]
+                 pcd_limit_range=[-20, -20, -2, 20, 20, 2]):  # HShin [360], [0, -40, -3, 70.4, 40, 0.0]
         super().__init__(
             data_root=data_root,
             ann_file=ann_file,

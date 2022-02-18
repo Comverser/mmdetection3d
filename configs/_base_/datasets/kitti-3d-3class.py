@@ -2,7 +2,7 @@
 dataset_type = 'KittiDataset'
 data_root = 'data/kitti/'  # HShin
 class_names = ['Pedestrian', 'Cyclist', 'Car']
-point_cloud_range = [-70, -70, -3, 70, 70, 3]  # HShin [360]: [xmin, ymax, zmin, xmax, ymax, zmax], [0, -40, -3, 70.4, 40, 1]
+point_cloud_range = [-20, -20, -2, 20, 20, 2]  # HShin [360]: [xmin, ymax, zmin, xmax, ymax, zmax], [0, -40, -3, 70.4, 40, 1]
 input_modality = dict(use_lidar=True, use_camera=False)
 db_sampler = dict(
     data_root=data_root,

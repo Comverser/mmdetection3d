@@ -4,7 +4,7 @@ _base_ = [
     '../_base_/schedules/cyclic_40e.py', '../_base_/default_runtime.py'
 ]
 
-point_cloud_range = [-70, -70, -3, 70, 70, 3]  # HShin [360]; [0, -39.68, -3, 69.12, 39.68, 1]
+point_cloud_range = [-2, -20, -2, 20, 20, 2]  # HShin [360]; [0, -39.68, -3, 69.12, 39.68, 1]
 # dataset settings
 data_root = 'data/kitti/'  # HShin
 class_names = ['Pedestrian', 'Cyclist', 'Car']
