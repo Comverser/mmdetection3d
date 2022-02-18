@@ -4,7 +4,7 @@ model = dict(
     type='VoxelNet',
     voxel_layer=dict(
         max_num_points=32,  # max_points_per_voxel
-        point_cloud_range=[-69.12, -69.12, -3, 69.12, 69.12, 3],  # HShin [360][pointpillars], [0, -39.68, -3, 69.12, 39.68, 1]
+        point_cloud_range=[-34.56, -39.68, -3, 34.56, 39.68, 1],  # HShin [360][pointpillars], [0, -39.68, -3, 69.12, 39.68, 1]
         voxel_size=voxel_size,
         max_voxels=(16000, 40000)  # (training, testing) max_voxels
     ),
@@ -14,7 +14,7 @@ model = dict(
         feat_channels=[64],
         with_distance=False,
         voxel_size=voxel_size,
-        point_cloud_range=[-69.12, -69.12, -3, 69.12, 69.12, 3]),  # HShin [360][pointpillars], [0, -39.68, -3, 69.12, 39.68, 1]
+        point_cloud_range=[-34.56, -39.68, -3, 34.56, 39.68, 1]),  # HShin [360][pointpillars], [0, -39.68, -3, 69.12, 39.68, 1]
     middle_encoder=dict(
         type='PointPillarsScatter', in_channels=64, output_shape=[496, 432]),
     backbone=dict(
@@ -37,9 +37,9 @@ model = dict(
         anchor_generator=dict(
             type='AlignedAnchor3DRangeGenerator',
             ranges=[
-                [0, -69.12, 0.6, 69.12, 69.12, 0.6],  # HShin [360][pointpillars], [0, -39.68, -0.6, 69.12, 39.68, -0.6]
-                [0, -69.12, 0.6, 69.12, 69.12, 0.6],  # HShin [360][pointpillars], [0, -39.68, -0.6, 69.12, 39.68, -0.6]
-                [0, -69.12, 1.78, 69.12, 69.12, 1.78],  # HShin [360][pointpillars], [0, -39.68, -1.78, 69.12, 39.68, -1.78]
+                [-34.56, -39.68, -0.6, 34.56, 39.68, -0.6],  # HShin [360][pointpillars], [0, -39.68, -0.6, 69.12, 39.68, -0.6]
+                [-34.56, -39.68, -0.6, 34.56, 39.68, -0.6],  # HShin [360][pointpillars], [0, -39.68, -0.6, 69.12, 39.68, -0.6]
+                [-34.56, -39.68, -1.78, 34.56, 39.68, -1.78],  # HShin [360][pointpillars], [0, -39.68, -1.78, 69.12, 39.68, -1.78]
             ],
             sizes=[[0.6, 0.8, 1.73], [0.6, 1.76, 1.73], [1.6, 3.9, 1.56]],
             rotations=[0, 1.57],
