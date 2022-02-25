@@ -2,7 +2,7 @@ _base_ = ['../_base_/schedules/cosine.py', '../_base_/default_runtime.py']
 
 # model settings
 voxel_size = [0.05, 0.05, 0.1]
-point_cloud_range = [0, -40, -3, 70.4, 40, 3]  # HShin, [0, -40, -3, 70.4, 40, 1]
+point_cloud_range = [0, -40, -2, 70.4, 40, 2]  # HShin, [0, -40, -3, 70.4, 40, 1]
 
 model = dict(
     type='DynamicMVXFasterRCNN',
