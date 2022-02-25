@@ -63,7 +63,7 @@ class KittiDataset(Custom3DDataset):
                  box_type_3d='LiDAR',
                  filter_empty_gt=True,
                  test_mode=False,
-                 pcd_limit_range=[-20, -20, -2, 20, 20, 2]):  # HShin [360], [0, -40, -3, 70.4, 40, 0.0]
+                 pcd_limit_range=[0, -20, -2, 20, 20, 2]):  # HShin [360], [0, -40, -3, 70.4, 40, 0.0]
         super().__init__(
             data_root=data_root,
             ann_file=ann_file,
@@ -657,7 +657,7 @@ class KittiDataset(Custom3DDataset):
         limit_range = box_preds.tensor.new_tensor(self.pcd_limit_range)
         valid_pcd_inds = ((box_preds.center > limit_range[:3]) &
                           (box_preds.center < limit_range[3:]))
-        valid_inds = valid_pcd_inds.all(-1)  # HShin [360], valid_inds = valid_cam_inds & valid_pcd_inds.all(-1)
+        valid_inds = valid_cam_inds & valid_pcd_inds.all(-1)  # HShin [360]
 
         if valid_inds.sum() > 0:
             return dict(
