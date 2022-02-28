@@ -2,7 +2,7 @@ _base_ = ['../_base_/schedules/cosine.py', '../_base_/default_runtime.py']
 
 # model settings
 voxel_size = [0.05, 0.05, 0.1]
-point_cloud_range = [0, -40, -2, 70.4, 40, 2]  # HShin, [0, -40, -3, 70.4, 40, 1]
+point_cloud_range = [-35.2, -40, -2, 35.2, 40, 2]  # HShin [360], [0, -40, -3, 70.4, 40, 1]
 
 model = dict(
     type='DynamicMVXFasterRCNN',
@@ -70,9 +70,9 @@ model = dict(
         anchor_generator=dict(
             type='Anchor3DRangeGenerator',
             ranges=[
-                [0, -40.0, -0.6, 70.4, 40.0, -0.6],
-                [0, -40.0, -0.6, 70.4, 40.0, -0.6],
-                [0, -40.0, -1.78, 70.4, 40.0, -1.78],
+                [-35.2, -40.0, -0.6, 35.2, 40.0, -0.6],  # HShin [360], [0, -40.0, -0.6, 70.4, 40.0, -0.6]
+                [-35.2, -40.0, -0.6, 35.2, 40.0, -0.6],  # HShin [360], [0, -40.0, -0.6, 70.4, 40.0, -0.6]
+                [-35.2, -40.0, -1.78, 35.2, 40.0, -1.78],  # HShin [360], [0, -40.0, -1.78, 70.4, 40.0, -1.78]
             ],
             sizes=[[0.6, 0.8, 1.73], [0.6, 1.76, 1.73], [1.6, 3.9, 1.56]],
             rotations=[0, 1.57],
@@ -211,7 +211,7 @@ data = dict(
             data_root=data_root,
             ann_file=data_root + 'kitti_infos_train.pkl',
             split='training',
-            pts_prefix='velodyne_reduced',
+            pts_prefix='velodyne',  # HShin [360]
             pipeline=train_pipeline,
             modality=input_modality,
             classes=class_names,
@@ -222,7 +222,7 @@ data = dict(
         data_root=data_root,
         ann_file=data_root + 'kitti_infos_val.pkl',
         split='training',
-        pts_prefix='velodyne_reduced',
+        pts_prefix='velodyne',  # HShin [360]
         pipeline=test_pipeline,
         modality=input_modality,
         classes=class_names,
@@ -233,7 +233,7 @@ data = dict(
         data_root=data_root,
         ann_file=data_root + 'kitti_infos_val.pkl',  # HShin
         split='training',  # HShin
-        pts_prefix='velodyne_reduced',
+        pts_prefix='velodyne',  # HShin [360]
         pipeline=test_pipeline,
         modality=input_modality,
         classes=class_names,
