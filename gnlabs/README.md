@@ -41,13 +41,13 @@ tools/dist_train.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3
 ### test
 
 ```bash
-python tools/test.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
-    checkpoints/pointpillars.pth \
+tools/dist_test.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
+    checkpoints/pointpillars.pth 2 \
     --out data/kitti/results_pointpillars.pkl \
     --eval mAP
 
-python tools/test.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
-    checkpoints/pointpillars.pth \
+tools/dist_test.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
+    checkpoints/pointpillars.pth 2 \
     --out data/kitti/results_pointpillars.pkl \
     --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
@@ -79,13 +79,13 @@ tools/dist_train.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py 2
 ### test
 
 ```bash
-python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
-    checkpoints/second.pth \
+tools/dist_test.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
+    checkpoints/second.pth 2 \
     --out data/kitti/results_second.pkl \
     --eval mAP
 
-python tools/test.py configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
-    checkpoints/second.pth \
+tools/dist_test.sh configs/second/hv_second_secfpn_6x8_80e_kitti-3d-3class.py \
+    checkpoints/second.pth 2 \
     --out data/kitti/results_second.pkl \
     --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
@@ -141,13 +141,13 @@ python tools/train.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitt
 ### test
 
 ```bash
-python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
-    checkpoints/mvxnet.pth \
+tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+    checkpoints/mvxnet.pth 2 \
     --out data/kitti/results_mvxnet.pkl \
     --eval mAP
 
-python tools/test.py configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
-    checkpoints/mvxnet.pth \
+tools/dist_test.sh configs/mvxnet/dv_mvx-fpn_second_secfpn_adamw_2x8_80e_kitti-3d-3class.py \
+    checkpoints/mvxnet.pth 2 \
     --out data/kitti/results_mvxnet.pkl \
     --format-only --option submission_prefix=gnlabs/calc_ap/results/submission/
 
