@@ -19,7 +19,10 @@ sudo docker build -t mmdetection3d gnlabs/
 
 ## image
 ```bash
-sudo docker run --gpus all --shm-size=8g -it -v /home/s/dev/mmdetection3d/data:/mmdetection3d/data -v /home/s/dev/mmdetection3d/work_dirs:/mmdetection3d/work_dirs mmdetection3d
+sudo docker run --gpus all --shm-size=8g -it -v ~/data/kitti-test-all:/mmdetection3d/data/kitti -v ~/data/models:/mmdetection3d/checkpoints -v ~/data/results:/mmdetection3d/gnlabs/calc_ap/results mmdetection3d
+```
+```bash
+sudo docker run --gpus all --shm-size=8g -it -v ~/data/kitti-test-linked:/mmdetection3d/data/kitti -v ~/data/models:/mmdetection3d/checkpoints -v ~/data/results:/mmdetection3d/gnlabs/calc_ap/results mmdetection3d
 ```
 ## mis
 
