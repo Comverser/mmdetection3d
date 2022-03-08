@@ -161,7 +161,10 @@ python tools/misc/visualize_results.py configs/mvxnet/dv_mvx-fpn_second_secfpn_a
 ## dataset preparation
 
 ```bash
-python tools/create_data.py kitti --root-path data/kitti --out-dir data/kitti --extra-tag kitti
+python tools/create_data.py kitti --root-path /data/kitti-test-all --out-dir /data/kitti-test-all --extra-tag kitti 
+```
+```bash
+python tools/create_data.py kitti --root-path /data/kitti-test-linked --out-dir /data/kitti-test-linked --extra-tag kitti 
 ```
 
 ## browse
