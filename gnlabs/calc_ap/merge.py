@@ -7,8 +7,8 @@ from csv import reader
 labs_link = 'gnlabs/calc_ap/results/' # gnlabs folder
 
 # HShin
-# origin_link = '/data/kitti_test_all/' # Ground Truth folder
-origin_link = '/data/kitti_test_linked_only/' # Ground Truth folder
+# origin_link = 'data/kitti/' # Ground Truth folder
+origin_link = 'data/kitti/' # Ground Truth folder
 
 open_iou_csv = 'iou_value.csv' #saved iou csv file
 dir_origin = 'training/label_2/' #Ground Truth value txt folder
