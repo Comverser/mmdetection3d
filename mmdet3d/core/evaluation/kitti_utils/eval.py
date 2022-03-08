@@ -564,11 +564,11 @@ def eval_class(gt_annos,
     # HShin start
     import csv, os
 
-    from datetime import datetime
-    now = datetime.now()
-    current_time = now.strftime("%H%M%S")
+    # from datetime import datetime
+    # now = datetime.now()
+    # current_time = now.strftime("%H%M%S")
 
-    iou_file= f"iou_{current_time}.csv"
+    iou_file= f"iou_value.csv"
     results_folder= "gnlabs/calc_ap/results"
 
     is_exist_iou_folder = os.path.exists(results_folder)
