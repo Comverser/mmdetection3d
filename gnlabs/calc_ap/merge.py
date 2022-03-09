@@ -5,11 +5,7 @@ from csv import reader
 ##location setting
 
 labs_link = 'gnlabs/calc_ap/results/' # gnlabs folder
-
-# HShin
 origin_link = 'data/kitti/' # Ground Truth folder
-# origin_link = 'data/kitti/' # Ground Truth folder
-
 open_iou_csv = 'iou_value.csv' #saved iou csv file
 dir_origin = 'training/label_2/' #Ground Truth value txt folder
 
@@ -20,8 +16,6 @@ dir_pred = 'submission/' # predict value txt folder,  if mvx net = submission/pt
 list_up_file = 'ImageSets/val.txt' #Ground Truth file list txt file
 
 save_result_name = 'gnlabs/calc_ap/results/merged_results.csv' #where will save the merged csv file
-
-
 
 ### Start get IOU value
 with open(labs_link+open_iou_csv, 'r') as csv_file: #get iou value 
@@ -98,10 +92,16 @@ for Fi in range(len(list_up)):
         ID_list.append(list_up_data[Fi])
 
     for LL in range(len(proc_data)):
-        max_iou = max(proc_data[LL])
-        iou_loc = proc_data[LL].index(max_iou)
-        iou_loc_list.append(iou_loc)
-        max_iou_list.append(max_iou) #iou value maximum
+        try:
+            max_iou = max(proc_data[LL])
+            iou_loc = proc_data[LL].index(max_iou)
+            iou_loc_list.append(iou_loc)
+            max_iou_list.append(max_iou) #iou value maximum
+        except ValueError:
+            max_iou = 0
+            iou_loc = 0
+            iou_loc_list.append(iou_loc)
+            max_iou_list.append(max_iou) #error handle
 
     origin_pro = pd.DataFrame({})
     pred_pro = pd.DataFrame({'index':[], 'iou':[], 'pred_type':[]})
@@ -117,12 +117,11 @@ for Fi in range(len(list_up)):
         pred_pro['score']= pred['score']
     finally:
         pass
-    
-
 
     step = pd.merge(origin_pro, pred_pro, how='outer')
+    if len(origin) == 0:
+        step['ID'].fillna(list_up_data[Fi], inplace=True)
     comp = pd.concat([comp, step], axis=0)
-
 
 comp.to_csv(save_result_name, index=False)
 print("Result saved at "+save_result_name)
