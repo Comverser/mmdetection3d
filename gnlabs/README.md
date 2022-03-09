@@ -6,7 +6,7 @@
 vim configs/_base_/datasets/kitti-3d-3class.py
 ```
 
-## PointPillars
+<!-- ## PointPillars
 
 ### demo
 
@@ -54,7 +54,7 @@ tools/dist_test.sh configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d
 python tools/misc/visualize_results.py configs/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class.py \
     --result data/kitti/results_pointpillars.pkl --show-dir data/kitti/show_results_pointpillars
 ```
-
+ -->
 ## SECOND
 
 ### demo
